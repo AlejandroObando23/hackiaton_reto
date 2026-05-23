@@ -1,5 +1,5 @@
 # ETAPA 1: Construir el Frontend
-FROM node:18-alpine AS frontend-builder
+FROM node:22-alpine AS frontend-builder
 WORKDIR /app/frontend
 # Copiar package.json y package-lock.json
 COPY frontend/package*.json ./
