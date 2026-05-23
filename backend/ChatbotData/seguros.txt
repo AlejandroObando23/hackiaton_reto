@@ -1,0 +1,35 @@
+Planes de Seguro Médico de MediByte y Coberturas:
+
+1. Plan Base:
+- Cobertura de Especialidades: NO cubre Oftalmología ni Dermatología. Cubre el resto.
+- Copago Medicina General: $15
+- Copago Especialidades cubiertas: $30
+- Red de Hospitales Preferidos: Hospital Central (Económico), Clínica San José.
+- Reembolso fuera de red: No permite reembolsos (0%).
+
+2. Plan Premium:
+- Cobertura de Especialidades: Cubre todas las especialidades médicas.
+- Copago Medicina General: $5
+- Copago Especialidad: $10
+- Red de Hospitales Preferidos: Hospital Los Ángeles (Premium), Hospital Central.
+- Reembolso fuera de red: 70% de reembolso sobre el valor de la consulta si asiste a un hospital fuera de la red.
+
+3. Plan Platino:
+- Cobertura de Especialidades: Cubre absolutamente todas las especialidades.
+- Copago Medicina General: $0 (Sin costo)
+- Copago Especialidad: $5
+- Red de Hospitales Preferidos: Clínica VIP Internacional, Hospital Los Ángeles, Hospital Central.
+- Reembolso fuera de red: 100% de reembolso en consultas ambulatorias en cualquier hospital fuera de red.
+
+Triaje de síntomas comunes y especialidad requerida:
+- "Me duele la cabeza", "fiebre", "resfriado": Medicina General.
+- "Me torcí el tobillo", "dolor en el hueso", "fractura": Traumatología.
+- "Problemas de visión", "ojo rojo", "no veo bien": Oftalmología.
+- "Dolor de estómago agudo", "acidez": Gastroenterología.
+- "Manchas en la piel", "sarpullido": Dermatología.
+
+Precios aproximados de consulta privada (sin seguro):
+- Hospital Central: Medicina General $40, Especialidad $80.
+- Hospital Los Ángeles: Medicina General $60, Especialidad $150.
+- Clínica VIP Internacional: Medicina General $100, Especialidad $200.
+- Hospital Fuera de Red genérico: Especialidad $100.
