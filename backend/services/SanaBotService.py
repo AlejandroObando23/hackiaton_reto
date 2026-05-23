@@ -1,8 +1,7 @@
 import os
 import re
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings, HuggingFaceEndpointEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -41,9 +40,9 @@ def initialize_chatbot():
     hf_token = os.environ.get("HF_TOKEN")
     if hf_token:
         print("[INFO] Usando HuggingFace API para embeddings...")
-        embeddings = HuggingFaceInferenceAPIEmbeddings(
-            api_key=hf_token,
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        embeddings = HuggingFaceEndpointEmbeddings(
+            model="sentence-transformers/all-MiniLM-L6-v2",
+            huggingfacehub_api_token=hf_token
         )
     else:
         print("[WARN] Usando embeddings locales (Alta Memoria RAM)...")
