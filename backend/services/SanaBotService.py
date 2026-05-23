@@ -1,6 +1,7 @@
 import os
 import re
 from langchain_groq import ChatGroq
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
@@ -37,7 +38,16 @@ def initialize_chatbot():
         return
 
     llm = ChatGroq(api_key=api_key, model="llama-3.3-70b-versatile", temperature=0.3)
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    hf_token = os.environ.get("HF_TOKEN")
+    if hf_token:
+        print("[INFO] Usando HuggingFace API para embeddings...")
+        embeddings = HuggingFaceInferenceAPIEmbeddings(
+            api_key=hf_token,
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+    else:
+        print("[WARN] Usando embeddings locales (Alta Memoria RAM)...")
+        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
     if os.path.exists(PERSIST_DIRECTORY) and os.listdir(PERSIST_DIRECTORY):
         print("[INFO] Cargando base de datos vectorial existente...")
