@@ -34,11 +34,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import os
+from fastapi.staticfiles import StaticFiles
+
 app.include_router(sana_bot_router)
 
-@app.get("/")
-def read_root():
-    return {"message": "MediByte API is running"}
+if os.path.exists("static"):
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
+else:
+    @app.get("/")
+    def read_root():
+        return {"message": "MediByte API is running (Frontend not built/found)"}
 
 if __name__ == "__main__":
     import uvicorn

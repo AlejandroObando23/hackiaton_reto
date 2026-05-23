@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { Send, Mic, Square, Volume2 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/sana-bot';
+const API_BASE = '/sana-bot';
 const SESSION_ID = 'demo-session';
 const USER_ID = 'demo-user';
 
