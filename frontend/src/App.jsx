@@ -3,7 +3,7 @@ import ChatWindow from './components/ChatWindow';
 import InfoSidebar from './components/InfoSidebar';
 
 function App() {
-  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [selectedPlan, setSelectedPlan] = useState('Plan Base');
 
   return (
     <div className="app-container">
@@ -11,7 +11,7 @@ function App() {
         <header className="header">
           <div className="header-left">
             <div className="bot-avatar-pulse">
-              <img src="/frontend/public/sana.png" alt="MediByte Logo" style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
+              <img src="/sana.png" alt="Sana Logo" style={{ width: '120px', height: '120px', objectFit: 'contain', filter: 'drop-shadow(0 8px 24px rgba(124, 58, 237, 0.4))' }} />
             </div>
 
             <div>

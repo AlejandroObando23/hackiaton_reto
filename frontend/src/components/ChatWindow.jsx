@@ -6,18 +6,16 @@ const API_BASE = '/sana-bot';
 const SESSION_ID = 'demo-session';
 const USER_ID = 'demo-user';
 
-const ChatWindow = () => {
+const ChatWindow = ({ selectedPlan, setSelectedPlan }) => {
   const [messages, setMessages] = useState([
     { type: 'bot', content: 'Hola, soy Sana, tu agente de MediByte. ¿Qué síntomas tienes hoy o en qué te puedo ayudar?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('Plan Base');
-  
-  const chatRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
+  const chatRef = useRef(null);
 
   useEffect(() => {
     if (chatRef.current) {
@@ -113,12 +111,27 @@ const ChatWindow = () => {
     <>
       <div className="chat-header">
         <div className="plan-selector">
-          <label>Tu Seguro:</label>
-          <select value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)}>
-            <option value="Plan Base">Plan Base</option>
-            <option value="Plan Premium">Plan Premium</option>
-            <option value="Plan Platino">Plan Platino</option>
-          </select>
+          <label>Tu Seguro Activo</label>
+          <div className="plan-tabs">
+            <button 
+              className={`plan-tab ${selectedPlan === 'Plan Base' ? 'active' : ''}`}
+              onClick={() => setSelectedPlan('Plan Base')}
+            >
+              Plan Base
+            </button>
+            <button 
+              className={`plan-tab ${selectedPlan === 'Plan Premium' ? 'active' : ''}`}
+              onClick={() => setSelectedPlan('Plan Premium')}
+            >
+              Plan Premium
+            </button>
+            <button 
+              className={`plan-tab ${selectedPlan === 'Plan Platino' ? 'active' : ''}`}
+              onClick={() => setSelectedPlan('Plan Platino')}
+            >
+              Plan Platino
+            </button>
+          </div>
         </div>
       </div>
 
